@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: 'https://local1.vercel.app/' }));
 
 app.post('/save-data', (req, res) => {
     const data = req.body;
