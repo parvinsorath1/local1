@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 app.post('/save-data', (req, res) => {
     const data = req.body;
@@ -15,5 +15,5 @@ app.post('/save-data', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });
