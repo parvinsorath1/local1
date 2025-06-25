@@ -11,7 +11,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
                     screenResolution: `${window.screen.width}x${window.screen.height}`
                 };
                 const data = { location, browserInfo };
-                fetch('https://local1-7vns.onrender.com/', {
+                fetch(process.env.BACKEND_URL || 'https://local1-7vns.onrender.com/save-data', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
